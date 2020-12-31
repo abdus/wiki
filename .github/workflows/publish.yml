@@ -15,7 +15,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Run Script
         run: |
-          SRC=.
+          SRC=./diary
           OUT=diary-output
 
           curl -O https://raw.githubusercontent.com/abdus/scripts/master/vimwiki-diary.mjs
