@@ -1,0 +1,34 @@
+name: Build Project
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish_diary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Run Script
+        run: |
+          SRC=.
+          OUT=diary-output
+
+          curl -O https://raw.githubusercontent.com/abdus/scripts/master/vimwiki-diary.mjs
+          chmod +x vimwiki-diary.mjs
+
+          sudo npm install --global showdown
+
+          ./vimwiki-diary.mjs
+
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: diary-output
+          CLEAN: true
