@@ -24,7 +24,7 @@ jobs:
 
           pwd
           ls -a
-          node ../vimwiki-diary.mjs
+          node vimwiki-diary.mjs
 
       - name: Publish
         uses: JamesIves/github-pages-deploy-action@3.7.1
