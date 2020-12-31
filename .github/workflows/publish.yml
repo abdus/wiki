@@ -22,7 +22,7 @@ jobs:
           chmod +x vimwiki-diary.mjs
 
           sudo npm install --global showdown
-
+          pwd
           ./vimwiki-diary.mjs
 
       - name: Publish
