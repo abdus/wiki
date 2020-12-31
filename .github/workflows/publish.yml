@@ -19,8 +19,7 @@ jobs:
           chmod +x vimwiki-diary.mjs
           sudo npm install --global showdown
 
-          cd diary
-          export SRC=$(pwd)
+          export SRC=$(pwd)/diary
           export OUT=$(pwd)/output
 
           pwd
