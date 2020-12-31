@@ -20,8 +20,8 @@ jobs:
           sudo npm install --global showdown
 
           cd diary
-          SRC=$(pwd)
-          OUT=$(pwd)/output
+          export SRC=$(pwd)
+          export OUT=$(pwd)/output
 
           pwd
           ls -a
