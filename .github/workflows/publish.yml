@@ -15,17 +15,17 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Run Script
         run: |
-          cd diary
-          SRC=.
-          OUT=output
-
           curl -O https://raw.githubusercontent.com/abdus/scripts/master/vimwiki-diary.mjs
           chmod +x vimwiki-diary.mjs
-
           sudo npm install --global showdown
+
+          cd diary
+          SRC=$(pwd)
+          OUT=$(pwd)/output
+
           pwd
           ls -a
-          ./vimwiki-diary.mjs
+          node ../vimwiki-diary.mjs
 
       - name: Publish
         uses: JamesIves/github-pages-deploy-action@3.7.1
