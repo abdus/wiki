@@ -36,6 +36,50 @@
 <body>
   <article>
         <strong
+          id="5 january, 2021"
+          style="background: yellow; padding: 0.1rem 0.3rem"
+        >
+          <a style="color: inherit" href="#5 january, 2021">
+            5 JANUARY, 2021
+          </a>
+        </strong>
+        <div style="margin-bottom: 1rem"></div>
+        <ul>
+<li>wrote scripts for automating some stuffs</li>
+<li>build two projects (small CLI quiz app)</li>
+</ul>
+<hr />
+<p>learnt about <code>readline.emitKeypressEvents</code>. this listens for <code>keypress</code> on
+terminal. it also accepts an <code>interface</code> which can be used to terminate an event
+listener.</p>
+<pre><code class="javascript language-javascript">const iface = readline.createInterface({ input: process.stdin });
+
+readline.emitKeypressEvents(process.stdin, iface);
+process.stdin.setRawMode(true);
+
+process.stdin.on("keypress", (key, e) =&gt; {
+  if (e.ctrl &amp;&amp; e.name === "c") {
+    process.exit(0);
+  }
+
+  if (key &amp;&amp; !e.ctrl) {
+    resolve(key.toLowerCase());
+    process.stdin.setRawMode(false);
+    iface.close();
+  }
+});
+</code></pre>
+<hr />
+<p>Something awesome happened. I revived my throw-away and (kind-of) incative
+twitter account, all thanks to <a href="https://tanaypratap.com/">Tanay Pratap</a> and his
+discord server. (quite sure he hated me for not reading the channel chat
+history before posting)</p>
+<hr />
+<p>No DSA for today :(</p>
+      </article>
+      <div style="margin-bottom: 7rem"></div>
+    <article>
+        <strong
           id="4 january, 2021"
           style="background: yellow; padding: 0.1rem 0.3rem"
         >
