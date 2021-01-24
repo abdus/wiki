@@ -44,16 +44,16 @@
           </a>
         </strong>
         <div style="margin-bottom: 1rem"></div>
-        <p>really interesting article on how to ship ES2015+ code to browser: <a href="https://philipwalton.com/articles/deploying-es2015-code-in-production-today/">read here</a>
-takeaways:</p>
+        <p>really interesting article on how to ship ES2015+ code to browser: <a href="https://philipwalton.com/articles/deploying-es2015-code-in-production-today/">read here</a></p>
+<p>takeaways:</p>
 <ul>
 <li>don't transpile code to ES5 when not needed</li>
 <li>transpiling everything creates bloat, resulting in slow parsing and
 downloading</li>
 <li>generate separate bundles for ES5 and ES2015+ using webpack</li>
-<li>trick to ship ES6 bundles conditionally:</li>
+<li>trick to ship ES6 bundles conditionally:<ul>
 <li>use <code>&lt;script type="module" src="script.mjs"&gt;&lt;/script&gt;</code> for ES6+ bundle</li>
-<li>use <code>&lt;script nomodule src="script.es5.js"&gt;&lt;/script&gt;</code> for ES5 bundle</li>
+<li>use <code>&lt;script nomodule src="script.es5.js"&gt;&lt;/script&gt;</code> for ES5 bundle</li></ul></li>
 </ul>
 <p>browser with exec ES5 version if there's no <code>module</code> support available. note
 that having availablity of <code>module</code> means browser have support for
